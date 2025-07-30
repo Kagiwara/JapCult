@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(../images/japCult.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    padding-top: env(safe-area-inset-top); /* Для iPhone с "чёлочкой" */
+}
+
+header {
+    padding: 15px 10px;
+    background-color: rgba(22, 41, 54, 0.9);
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+h1 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    color: #27c9b5;
+    margin: 0.3em 0;
+    line-height: 1.2;
+    padding: 0 10px;
+    word-break: break-word;
+}
+
+header p {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    margin: 0;
+    padding: 0 10px;
+    line-height: 1.4;
+}
+
+main {
+    width: 95%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px 10px 30px;
+    box-sizing: border-box;
+    flex-grow: 1;
+}
+
+.card {
+    position: relative;
+    background-color: #1e3a4f;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.card-title {
+    color: #27c9b5;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 10; /* Увеличиваем z-index */
+    cursor: pointer;
+    background-color: #1e3a4f; /* Добавляем фон */
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: -10px;
+    width: calc(100% + 20px);
+}
+
+.content-wrapper {
+    position: relative;
+    transition: filter 0.3s ease;
+}
+
+.details {
+    position: absolute;
+    top: 60px; 
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px); /* Учитываем отступ */
+    background-color: rgba(30, 58, 79, 0.95);
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 2;
+    overflow-y: auto;
+    color: #fff;
+}
+
+.details.visible {
+    transform: translateY(0);
+}
+
+.card.has-details-open .content-wrapper {
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.card.has-details-open .card-title {
+    position: sticky;
+    top: 0;
+    z-index: 11; /* Заголовок поверх всего */
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 12px;
+    padding: 10px 5px;
+    margin: 12px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel img {
+    width: 180px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    scroll-snap-align: center;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.carousel img:hover {
+    transform: scale(1.05);
+}
+
+.details::-webkit-scrollbar {
+    display: none;
+}
+
+.details {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Адаптивные медиа-запросы */
+@media (max-width: 600px) {
+    .carousel img {
+        width: 150px;
+        height: 120px;
+    }
+    
+    .card {
+        padding: 14px;
+        margin: 14px 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .carousel img {
+        width: 130px;
+        height: 110px;
+    }
+    
+    header {
+        padding: 10px 8px;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    body {
+        padding-top: max(env(safe-area-inset-top), 10px);
+    }
+}

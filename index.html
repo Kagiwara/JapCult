@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <title>Японская Мифология</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <header>
+        <h1>Японская Мифология</h1>
+        <p>Погрузитесь в мир древних легенд и мифических существ</p>
+        <h5>(для подробной информации о существе нажмите на его название)</h5>
+    </header>
+
+<main>
+    <div class="card" data-card-id="yokai">
+        <h2 class="card-title">Ёкаи</h2>
+        <div class="card-content">
+            <p>Ёкаи — это сверхъестественные существа японской мифологии. Они могут принимать различные формы и часто связаны с природными явлениями.</p>
+            <div class="carousel">
+                <img src="images/yokai1.jpg" alt="Ёкай 1">
+                <img src="images/yokai2.jpg" alt="Ёкай 2">
+                <img src="images/yokai3.jpg" alt="Ёкай 3">
+            </div>
+            <div class="details hidden">
+                <h3>Подробнее о Ёкаях</h3>
+                <p>Ёкаи в японской мифологии — это сверхъестественные существа, которые могут быть представлены в виде духов, призраков или чудовищ. В переводе с японского «ёкай» означает «призрак» или «чудовище».</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" data-card-id="amaterasu">
+        <h2 class="card-title">Аматерасу</h2>
+        <div class="card-content">
+            <p>Аматерасу — богиня солнца и верховное божество синтоизма. Она олицетворяет свет, жизнь и плодородие.</p>
+            <div class="carousel">
+                <img src="images/amaterasu1.jpg" alt="Аматерасу 1">
+                <img src="images/amaterasu2.jpg" alt="Аматерасу 2">
+                <img src="images/amaterasu3.jpg" alt="Аматерасу 3">
+            </div>
+            <div class="details hidden">
+                <h3>Подробнее о Аматерасу</h3>
+                <p>Аматерасу — одна из самых важных фигур в японской мифологии. Она символизирует силу солнца и является покровительницей Японии.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" data-card-id="susanoo">
+        <h2 class="card-title">Сусаноо</h2>
+        <div class="card-content">
+            <p>Сусаноо — бог штормов и морей. Он известен своей буйной натурой и легендарной битвой с восьмиглавым драконом Ямата-но-Орохи.</p>
+            <div class="carousel">
+                <img src="images/susanoo1.jpg" alt="Сусаноо 1">
+                <img src="images/susanoo2.jpg" alt="Сусаноо 2">
+                <img src="images/susanoo3.jpg" alt="Сусаноо 3">
+            </div>
+            <div class="details hidden">
+                <h3>Подробнее о Сусаноо</h3>
+                <p>Согласно мифам, Сусаноо был рождён из капель воды, которыми первый на свете бог-мужчина Идзанаги омывал свой нос. От отца бог получил во владение море, но не желал принимать на себя правление. За это Идзанаги изгнал Сусаноо.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" data-card-id="tsukuyomi">
+        <h2 class="card-title">Цукуёми</h2>
+        <div class="card-content">
+            <p>Цукуёми — бог луны. Он является братом Аматерасу и воплощает спокойствие и мудрость.</p>
+            <div class="carousel">
+                <img src="images/tsukuyomi1.jpg" alt="Цукуёми 1">
+                <img src="images/tsukuyomi2.jpg" alt="Цукуёми 2">
+                <img src="images/tsukuyomi3.jpg" alt="Цукуёми 3">
+            </div>
+            <div class="details hidden">
+                <h3>Подробнее о Цукуёми</h3>
+                <p>Цукуёми (яп. 月読) — бог луны в синтоизме, управляющий ночью, приливами и отливами. Наряду с Аматэрасу и Сусаноо является потомком Идзанаги.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" data-card-id="kitsune">
+        <h2 class="card-title">Кицунэ</h2>
+        <div class="card-content">
+            <p>Кицунэ — мифические лисы, обладающие магическими способностями. Они могут превращаться в людей и обманывать их.</p>
+            <div class="carousel">
+                <img src="images/kitsune1.jpg" alt="Кицунэ 1">
+                <img src="images/kitsune2.jpg" alt="Кицунэ 2">
+                <img src="images/kitsune3.jpg" alt="Кицунэ 3">
+            </div>
+            <div class="details hidden">
+                <h3>Подробнее о Кицунэ</h3>
+                <p>Загадочная красавица-лиса, один из самых популярных персонажей в японской мифологии. Может превращаться в других животных и человека, обладает большими знаниями и магией.</p>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+document.querySelectorAll('.card').forEach(card => {
+    const cardTitle = card.querySelector('.card-title');
+    const details = card.querySelector('.details');
+
+    cardTitle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        // Закрываем другие открытые карточки
+        document.querySelectorAll('.details.visible').forEach(openDetail => {
+            if (openDetail !== details) {
+                openDetail.classList.remove('visible');
+                openDetail.classList.add('hidden');
+                openDetail.closest('.card').classList.remove('has-details-open');
+            }
+        });
+
+        if (details.classList.contains('hidden')) {
+            details.classList.remove('hidden');
+            details.classList.add('visible');
+            card.classList.add('has-details-open');
+        } else {
+            details.classList.remove('visible');
+            details.classList.add('hidden');
+            card.classList.remove('has-details-open');
+        }
+    });
+
+    // Закрытие при клике вне карточки
+    document.addEventListener('click', (event) => {
+        if (!card.contains(event.target)) {
+            details.classList.remove('visible');
+            details.classList.add('hidden');
+            card.classList.remove('has-details-open');
+        }
+    });
+});
+</script>
+</body>
+</html>
